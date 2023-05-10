@@ -68,6 +68,10 @@ pipeline {
                         sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yml
                         type deployment.yml
                     """
+                    withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+                       
+                        bat "git push https://github.com/geraldWaga92/devOps-project.git main "
+                    }
                 }
             }
 
