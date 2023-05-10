@@ -28,7 +28,7 @@ pipeline {
             steps{
                 script{
                     git credentialsId: 'github',
-                    url: 'https://github.com/geraldWaga92/devOps-project.git',
+                    url: 'https://github.com/geraldWaga92/devOps-project.git',  
                     branch: 'main'
                 }
             }
