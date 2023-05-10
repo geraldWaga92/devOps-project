@@ -1,8 +1,6 @@
 pipeline {
 
-    agent {
-        label 'linux'
-    }
+    agent any
 
     environment {
         DOCKERHUB_USERNAME = "gerald30"
@@ -57,8 +55,8 @@ pipeline {
         stage ('Delete Docker Image') {
             steps {
                 script {
-                    sh "docker rmi -f ${IMAGE_NAME}:${IMAGE_TAG}"
-                    sh "docker rmi -f ${IMAGE_NAME}:latest"
+                    bat "docker rmi -f ${IMAGE_NAME}:${IMAGE_TAG}"
+                    bat "docker rmi -f ${IMAGE_NAME}:latest"
                 }
             }
         }
